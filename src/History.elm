@@ -17,6 +17,12 @@ import Task exposing (Task)
 
 import Native.History
 
+initialHash : String
+initialHash = Native.History.initialHash
+
+initialPath : String
+initialPath = Native.History.initialPath
+
 {-| Sets the path of the url to the given path.
 If you are familiar with the HTML5 History API,
 `setPath` calls `history.pushState()` which means

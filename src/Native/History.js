@@ -23,6 +23,9 @@ Elm.Native.History.make = function(localRuntime){
   // hash : Signal String
   var hash = NS.input('History.hash', window.location.hash);
 
+  var initialHash = window.location.hash;
+  var initialPath = window.location.pathname;
+
   localRuntime.addListener([path.id, length.id], node, 'popstate', function getPath(event){
     localRuntime.notify(path.id, window.location.pathname);
     localRuntime.notify(length.id, window.history.length);
@@ -103,7 +106,9 @@ Elm.Native.History.make = function(localRuntime){
     back        : back,
     forward     : forward,
     length      : length,
-    hash        : hash
+    hash        : hash,
+    initialHash : initialHash,
+    initialPath : initialPath
   };
 
 };
